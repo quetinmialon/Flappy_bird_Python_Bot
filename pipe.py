@@ -1,5 +1,6 @@
 import pygame
 import random
+from asset_utils import resource_path
 from score_zone import ScoreZone
 
 PIPE_WIDTH = 52
@@ -11,7 +12,7 @@ PIPE_SPACING = 200  # Espacement constant entre les paires de tuyaux
 
 class Pipe:
     def __init__(self, x):
-        original_image = pygame.image.load('pipe.png')
+        original_image = pygame.image.load(resource_path("pipe.png"))
         self.image_bottom = pygame.transform.scale(original_image, (PIPE_WIDTH, PIPE_HEIGHT))
         self.image_top = pygame.transform.flip(self.image_bottom, False, True)
         self.rect_top = self.image_top.get_rect()
